@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Ball : MonoBehaviour
 {
+    private GuiManager guiManager;
     //controls the position of the ball at the start of the game.
 #region StartPosition
 
@@ -24,6 +25,7 @@ public class Ball : MonoBehaviour
     void Start()
     {
         ballRB = GetComponent<Rigidbody2D>();
+        guiManager = FindObjectOfType<GuiManager>();
         //ballRB.isKinematic = true;
     }
 
@@ -39,8 +41,11 @@ public class Ball : MonoBehaviour
         }
         // else
             //ballRB.isKinematic = false;
-        
-            
+
+            if(guiManager.wonGame)
+            {
+                ballRB.velocity = Vector2.zero;
+            }
 
     }
 
@@ -70,4 +75,7 @@ public class Ball : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+
+    private void OnDestroy() => guiManager.loseGame = true;
+
 }

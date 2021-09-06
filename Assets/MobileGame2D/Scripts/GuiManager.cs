@@ -18,6 +18,9 @@ public class GuiManager : MonoBehaviour
     [SerializeField] private Button restartButt;
     [SerializeField] private Button QuitButt;
 
+    public bool wonGame = false;
+
+    public bool loseGame = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,14 +33,25 @@ public class GuiManager : MonoBehaviour
         if(startGame)
         {
             scoreText.text = score.ToString();
+            
+        }
+
+        if(loseGame)
+        {
+            restartButt.gameObject.SetActive(true);
+            QuitButt.gameObject.SetActive(true);
+            scoreText.text = "(- _-'')";
+            scoreText.color = new Color(0.35f, 0.0f, 0.0f, 0.35f);
         }
 
         if(score == 0)
         {
             startGame = false;
             scoreText.text = "Nice!";
+            scoreText.color = new Color(0, 0.8f, 0.0f, 0.85f);
             restartButt.gameObject.SetActive(true);
             QuitButt.gameObject.SetActive(true);
+            wonGame = true;
         }
             
     }
@@ -50,7 +64,9 @@ public class GuiManager : MonoBehaviour
     public void GuitGame()
     {
     #if UNITY_EDITOR
-        
+        UnityEditor.EditorApplication.isPlaying = false;
+    #else
+                    Application.Quit;
     #endif
     }
 

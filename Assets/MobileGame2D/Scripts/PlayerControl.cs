@@ -19,7 +19,7 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         playerMsk = LayerMask.GetMask("PlayerMsk");
-        
+        gui = FindObjectOfType<GuiManager>();
     }
 
     // Update is called once per frame

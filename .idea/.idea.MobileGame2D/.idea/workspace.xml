@@ -19,15 +19,16 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../2DOneButtonGame/Assets/2DOneButtonGame/Scripts/RestartGame.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MobileGame2D/Scripts/Ball.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MobileGame2D/Scripts/GuiManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/MobileGame2D/Scripts/Core/Input/MobileInputManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/MobileGame2D/Scripts/Bricked.cs" />
       <option value="$PROJECT_DIR$/Assets/MobileGame2D/Scripts/Ball.cs" />
       <option value="$PROJECT_DIR$/Assets/MobileGame2D/Scripts/PlayerControl.cs" />
-      <option value="$PROJECT_DIR$/Assets/MobileGame2D/Scripts/Bricked.cs" />
       <option value="$PROJECT_DIR$/Assets/MobileGame2D/Scripts/GuiManager.cs" />
     </changedPaths>
   </component>
@@ -75,7 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1630393048693</updated>
       <workItem from="1630393060427" duration="1029000" />
-      <workItem from="1630885499918" duration="12273000" />
+      <workItem from="1630885499918" duration="14119000" />
     </task>
     <servers />
   </component>
