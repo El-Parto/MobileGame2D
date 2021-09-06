@@ -10,10 +10,24 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/MobileGame2D/Scripts/Ball.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MobileGame2D/Scripts/GuiManager.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/MobileGame2D/Scripts/Core/Input/MobileInputManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/MobileGame2D/Scripts/GuiManager.cs" />
       <option value="$PROJECT_DIR$/Assets/MobileGame2D/Scripts/PlayerControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/MobileGame2D/Scripts/Ball.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1xTxmu6jnI21yoaSqDQhBxo38MX" />
@@ -59,13 +73,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1630393048693</updated>
-      <workItem from="1630393060427" duration="433000" />
+      <workItem from="1630393060427" duration="1029000" />
+      <workItem from="1630885499918" duration="8138000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
