@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Ball : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Ball : MonoBehaviour
     private Vector3 staticBallPos;
     [SerializeField] private GameObject startPaddle;
     private bool startGame = false;
+    public Button startGameButton;
 
 #endregion
 
@@ -22,7 +24,7 @@ public class Ball : MonoBehaviour
     void Start()
     {
         ballRB = GetComponent<Rigidbody2D>();
-        ballRB.isKinematic = true;
+        //ballRB.isKinematic = true;
     }
 
     // Update is called once per frame
@@ -35,8 +37,8 @@ public class Ball : MonoBehaviour
             ballRB.velocity= Vector2.zero;
             
         }
-        else
-            ballRB.isKinematic = false;
+        // else
+            //ballRB.isKinematic = false;
         
             
 
@@ -50,11 +52,22 @@ public class Ball : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Activates the ball so that it may move around freely via 2D physics.
+    /// </summary>
     public void ActivateBall()
     {
         startGame = true;
-        ballRB.isKinematic = true;
-        if(!startGame)
-            ballRB.AddForce(Vector2.up * initBallSpeed);
+        //ballRB.isKinematic = false;
+        ballRB.AddForce(new Vector2(100, initBallSpeed));
+        startGameButton.gameObject.SetActive(false);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.collider.CompareTag("Folder"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 }

@@ -25,9 +25,10 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/MobileGame2D/Scripts/Core/Input/MobileInputManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/MobileGame2D/Scripts/GuiManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/MobileGame2D/Scripts/PlayerControl.cs" />
       <option value="$PROJECT_DIR$/Assets/MobileGame2D/Scripts/Ball.cs" />
+      <option value="$PROJECT_DIR$/Assets/MobileGame2D/Scripts/PlayerControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/MobileGame2D/Scripts/Bricked.cs" />
+      <option value="$PROJECT_DIR$/Assets/MobileGame2D/Scripts/GuiManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1xTxmu6jnI21yoaSqDQhBxo38MX" />
@@ -74,7 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1630393048693</updated>
       <workItem from="1630393060427" duration="1029000" />
-      <workItem from="1630885499918" duration="8138000" />
+      <workItem from="1630885499918" duration="12273000" />
     </task>
     <servers />
   </component>

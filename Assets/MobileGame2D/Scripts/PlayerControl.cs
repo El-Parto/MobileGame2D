@@ -46,11 +46,14 @@ public class PlayerControl : MonoBehaviour
             // allows ray cast to collect info based on the parameters in this case, it's drawing from the origin of our raycast
             // in the direction of the where the mouse is and only selects whatever is in the layermask playermask,
             RaycastHit2D theHitObject = Physics2D.Raycast(raycastDrawer.origin, raycastDrawer.direction, Mathf.Infinity, playerMsk);
-            if(theHitObject != null)
+            if(theHitObject!= null)
             {
                 selectedplayer = theHitObject.collider.gameObject;
                 beingDragged = true;
             }
+            
+            
+                
             
 
         }
@@ -70,7 +73,7 @@ public class PlayerControl : MonoBehaviour
 
     }
 
-    private Vector3 CurrentMousePos() => currentPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
+    private Vector3 CurrentMousePos() => currentPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, 10, 10));
     
     public void MovePlatformMouse()
     {
