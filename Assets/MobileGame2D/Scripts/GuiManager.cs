@@ -8,13 +8,14 @@ using UnityEngine.UI;
 public class GuiManager : MonoBehaviour
 {
     
-    public Camera camera;
+    //public Camera camera;
     [SerializeField] private Ball ball;
-    [SerializeField] private Bricked brrrr;
-    public bool startGame = false;
+    public bool startGame = false; // activated by pressing the "Activate ball" button
     public int score = 24;
 
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI controlText;
+    
     [SerializeField] private Button restartButt;
     [SerializeField] private Button QuitButt;
 
@@ -24,16 +25,37 @@ public class GuiManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        camera = FindObjectOfType<Camera>();
+        //camera = FindObjectOfType<Camera>();
+        
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
+    {
+        WinLoseRestartGame();
+    }
+
+   // public void StartGame() => startGame = true;
+
+
+    public void RestartGame() => SceneManager.LoadScene("GameScene");
+
+    public void GuitGame()
+    {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false; 
+        #else
+            Application.Quit(); 
+        #endif
+    }
+
+    private void WinLoseRestartGame()
     {
         if(startGame)
         {
             scoreText.text = score.ToString();
-            
+            controlText.gameObject.SetActive(false);
+
         }
 
         if(loseGame)
@@ -47,28 +69,18 @@ public class GuiManager : MonoBehaviour
         if(score == 0)
         {
             startGame = false;
+            wonGame = true;
             scoreText.text = "Nice!";
             scoreText.color = new Color(0, 0.8f, 0.0f, 0.85f);
             restartButt.gameObject.SetActive(true);
             QuitButt.gameObject.SetActive(true);
-            wonGame = true;
+            
         }
             
+        if(wonGame)
+        {
+            ball.ballRB.velocity = Vector2.zero;
+        }
     }
-
-    public void StartGame() => startGame = true;
-
-
-    public void RestartGame() => SceneManager.LoadScene("GameScene");
-
-    public void GuitGame()
-    {
-    #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-    #else
-                    Application.Quit;
-    #endif
-    }
-
 
 }

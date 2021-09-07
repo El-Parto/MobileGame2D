@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Ball : MonoBehaviour
 {
-    private GuiManager guiManager;
+    [SerializeField] private GuiManager guiManager;
     //controls the position of the ball at the start of the game.
 #region StartPosition
 
@@ -18,7 +18,7 @@ public class Ball : MonoBehaviour
 
 #endregion
 
-    [SerializeField] private Rigidbody2D ballRB;
+    public Rigidbody2D ballRB;
     private float initBallSpeed = 600;
     
     // Start is called before the first frame update
@@ -32,7 +32,7 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!startGame)
+        if(!guiManager.startGame)
         {
             staticBallPos = startPaddle.transform.position;
             gameObject.transform.position = new Vector3(staticBallPos.x, staticBallPos.y);
@@ -42,10 +42,7 @@ public class Ball : MonoBehaviour
         // else
             //ballRB.isKinematic = false;
 
-            if(guiManager.wonGame)
-            {
-                ballRB.velocity = Vector2.zero;
-            }
+
 
     }
 
@@ -62,7 +59,7 @@ public class Ball : MonoBehaviour
     /// </summary>
     public void ActivateBall()
     {
-        startGame = true;
+        guiManager.startGame = true;
         //ballRB.isKinematic = false;
         ballRB.AddForce(new Vector2(100, initBallSpeed));
         startGameButton.gameObject.SetActive(false);
