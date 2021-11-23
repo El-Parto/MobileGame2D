@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class Ball : MonoBehaviour
@@ -15,6 +16,10 @@ public class Ball : MonoBehaviour
     [SerializeField] private GameObject startPaddle;
     private bool startGame = false;
     public Button startGameButton;
+
+    [SerializeField] private AudioSource sfxToPlay;
+    [SerializeField] private AudioSource[] sfxTotoChoose;
+    [SerializeField] private AudioMixerGroup sfxSound;
 
 #endregion
 
@@ -48,8 +53,12 @@ public class Ball : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D _trigger)
     {
+        //destroy upon triggering the collider
         if(_trigger.CompareTag("DeathZone"))
         {
+            sfxSound.audioMixer.SetFloat("SFX_Pitch", 1);
+            sfxToPlay = sfxTotoChoose[1];
+            sfxToPlay.Play();
             Destroy(gameObject);
         }
     }
@@ -67,12 +76,36 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        //Destroy the collider's gameobject passed through, which is the brick.
         if(other.collider.CompareTag("Folder"))
         {
+            float randPitch = UnityEngine.Random.Range(0.3f, 2.2f);
+            sfxSound.audioMixer.SetFloat("SFX_Pitch", randPitch);
+            sfxToPlay = sfxTotoChoose[0];
+            sfxToPlay.Play();
             Destroy(other.gameObject);
         }
+
+        // play the specified sound upon contact with GO tagged "Wall"
+        if(other.collider.CompareTag("Wall"))
+        {
+            float randPitch = UnityEngine.Random.Range(0.3f, 2.2f);
+            sfxSound.audioMixer.SetFloat("SFX_Pitch", randPitch);
+            sfxToPlay = sfxTotoChoose[0];
+            sfxToPlay.Play();
+        }
+
+        // play the specified sound upon contact with the player GO
+        if(other.collider.CompareTag("Player"))
+        {
+            float randPitch = UnityEngine.Random.Range(0.3f, 2.2f);
+            sfxSound.audioMixer.SetFloat("SFX_Pitch", randPitch);
+            sfxToPlay = sfxTotoChoose[0];
+            sfxToPlay.Play();
+        }
+        
     }
 
-    private void OnDestroy() => guiManager.loseGame = true;
+    private void OnDestroy() => guiManager.loseGame = true; // if the game object is destroyed, set the bool to lose game and activate lose screen.
 
 }

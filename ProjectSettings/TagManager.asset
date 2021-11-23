@@ -6,6 +6,8 @@ TagManager:
   tags:
   - DeathZone
   - Folder
+  - Wall
+  - Music
   layers:
   - Default
   - TransparentFX
